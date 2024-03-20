@@ -42,7 +42,8 @@ const config = {
     assets: 'static',
   },
   paths : {
-	output : [".svelte-kit/**", ".vercel/**"],
+	output: './public'
+	// output : [".svelte-kit/**", ".vercel/**" ],
   },
   preprocess: [
     vitePreprocess({
