@@ -17,15 +17,41 @@
 // export default config;
 
 
-import adapter from '@sveltejs/adapter-vercel';
+// import adapter from '@sveltejs/adapter-vercel';
  
+// /** @type {import('@sveltejs/kit').Config} */
+// const config = {
+//   kit: {
+//     adapter: adapter({
+//       runtime: 'nodejs18.x',
+//     }),
+//   },
+// };
+ 
+// export default config;
+
+import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from '@sveltejs/adapter-auto';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
-    adapter: adapter({
-      runtime: 'nodejs18.x',
-    }),
+    adapter: adapter()
   },
+  files: {
+    assets: 'static',
+  },
+  paths : {
+	output : [".svelte-kit/**", ".vercel/**"],
+  },
+  preprocess: [
+    vitePreprocess({
+      postcss: true
+    })
+  ]
 };
- 
+
 export default config;
+
+
+
